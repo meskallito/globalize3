@@ -44,7 +44,7 @@ module Globalize
           end
         end
 
-        record.translations.each(&:reload)
+        record.translations.select! {|item| item.id.present? }.each(&:reload)
         record.translations.reset
         reset
       end
