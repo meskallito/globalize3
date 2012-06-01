@@ -143,6 +143,9 @@ module Globalize
         define_method(:"#{name}=") do |value|
           write_attribute(name, value)
         end
+        define_method(:"#{name}_changed?") do |*args|
+          changed.include?("#{name}")
+        end
         define_method(name) do |*args|
           read_attribute(name, {:locale => args.first})
         end

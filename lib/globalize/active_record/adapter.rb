@@ -43,8 +43,7 @@ module Globalize
             translation.save!
           end
         end
-
-        record.translations.select! {|item| item.id.present? }.each(&:reload)
+        
         record.translations.reset
         reset
       end
